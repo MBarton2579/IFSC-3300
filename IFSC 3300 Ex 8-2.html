@@ -1,0 +1,31 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="IFSC 3300 Ex 8-2.css">
+</head>
+
+<body>
+  <main>
+    <h1>Fishing Images</h1>
+    <p>Move your mouse over an image to change it and back out of the
+      image to restore the original image.</p>
+    <ul id="image_rollovers">
+      <li><img src="images/release.jpg" alt="" id="images/deer.jpg"></li>
+      <li><img src="images/hero.jpg" alt="" id="images/bison.jpg"></li>
+      <li><img src="images/deer.jpg" alt="" id="images/release.jpg"></li>
+      <li><img src="images/bison.jpg" alt="" id="images/hero.jpg"></li>
+    </ul>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script>
+    "use strict";
+    $(document).ready(() => {
+      $("#image_rollovers img").each((index, img) => {
+        const oldURL = img.src;
+        const newURL = img.id;
+        const rolloverImage = new Image();
+        rolloverImage.src = newURL;
+        $(img).mouseover(() => img.src = newURL);
+        $(img).mouseout(() => img.src = oldURL); 
+      });
+    });
+  </script>
+</body>
